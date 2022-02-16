@@ -1,5 +1,7 @@
 package hu.petrik.ingatlanoop;
 
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -15,5 +17,13 @@ public class Main {
         for (String city:r.getSortedCities()) {
             System.out.println(city);
         }
+
+        List<RealEstate> expensiveList = r.getMostExpensiveRealEstate(5);
+        expensiveList.forEach(System.out::println);
+
+        System.out.println();
+
+        List<RealEstate> cheapList = r.getCheapestRealEstate(10);
+        cheapList.forEach(System.out::println);
     }
 }

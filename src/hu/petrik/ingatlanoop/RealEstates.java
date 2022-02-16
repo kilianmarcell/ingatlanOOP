@@ -90,6 +90,20 @@ public class RealEstates {
                 .collect(Collectors.toList());
     }
 
+    public List<RealEstate> getMostExpensiveRealEstate(int number) {
+        return realEstateList.stream()
+                .sorted(Comparator.comparingInt(RealEstate::getPrice).reversed())
+                .limit(number)
+                .collect(Collectors.toList());
+    }
+
+    public List<RealEstate> getCheapestRealEstate(int number) {
+        return realEstateList.stream()
+                .sorted(Comparator.comparingInt(RealEstate::getPrice))
+                .limit(number)
+                .collect(Collectors.toList());
+    }
+
     @Override
     public String toString() {
         String s = "";
