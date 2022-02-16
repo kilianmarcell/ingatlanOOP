@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -34,7 +35,21 @@ public class RealEstates {
     }
 
     public long getSalesNumber() {
-        return realEstateList.stream().count();
+        return realEstateList.stream()
+                .count();
+    }
+
+    public RealEstate getBiggestRealEstate() {
+        return realEstateList.stream()
+                .max(Comparator.comparingInt(ingatlan -> ingatlan.getSqFt()))
+                .get();
+    }
+
+    public int getBiggestRealEstateFt() {
+        return this.realEstateList.stream()
+                .map(ingatlan -> ingatlan.getSqFt())
+                .max(Integer::compareTo)
+                .get();
     }
 
     @Override
