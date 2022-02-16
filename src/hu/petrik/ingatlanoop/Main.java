@@ -8,5 +8,7 @@ public class Main {
         System.out.println(r.getBiggestRealEstate());
         System.out.println(r.getSummary());
         System.out.println(r.getCountOfRealEstateWithoutSize());
+        System.out.println(r.isSaleRealEstateInCity("SACRAMENTO"));
+        System.out.println(r.isSaleRealEstateInCity("Budapest"));
     }
 }

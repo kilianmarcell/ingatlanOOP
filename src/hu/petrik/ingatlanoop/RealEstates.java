@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RealEstates {
     private List<RealEstate> realEstateList;
@@ -62,6 +63,23 @@ public class RealEstates {
         return realEstateList.stream()
                 .filter(i -> i.getSqFt() == 0)
                 .count(); //azok az ingatlanok amelyeknek nincs mérete
+    }
+
+    public boolean isSaleRealEstateInCity(String city) {
+        return realEstateList.stream()
+                .anyMatch(i -> i.getCity().equals(city));
+    }
+
+    public long getCountOfSalesInCity(String city) {
+        return realEstateList.stream()
+                .filter(ingatlan -> ingatlan.getCity().equals(city))
+                .count();
+    }
+
+    public List<RealEstate> getSalesInCity(String city) {
+        return realEstateList.stream()
+                .filter(ingatlan -> ingatlan.getCity().equals(city))
+                .collect(Collectors.toList());
     }
 
     @Override
