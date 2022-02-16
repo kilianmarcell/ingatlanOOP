@@ -42,7 +42,7 @@ public class RealEstates {
     public RealEstate getBiggestRealEstate() {
         return realEstateList.stream()
                 .max(Comparator.comparingInt(ingatlan -> ingatlan.getSqFt()))
-                .get();
+                .get(); //legnagyobb ingatlan alapterülete
     }
 
     public int getBiggestRealEstateFt() {
@@ -55,7 +55,13 @@ public class RealEstates {
     public long getSummary() {
         return realEstateList.stream()
                 .mapToInt(R -> R.getPrice())
-                .sum();
+                .sum(); //ingatlanok árának összeadása
+    }
+
+    public long getCountOfRealEstateWithoutSize() {
+        return realEstateList.stream()
+                .filter(i -> i.getSqFt() == 0)
+                .count(); //azok az ingatlanok amelyeknek nincs mérete
     }
 
     @Override
