@@ -6,5 +6,6 @@ public class Main {
         RealEstates r = new RealEstates("realestatetransactions.csv");
         System.out.println(r.getSalesNumber() + " db");
         System.out.println(r.getBiggestRealEstate());
+        System.out.println(r.getSummary());
     }
 }

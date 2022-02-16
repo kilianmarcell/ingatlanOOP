@@ -52,6 +52,12 @@ public class RealEstates {
                 .get();
     }
 
+    public long getSummary() {
+        return realEstateList.stream()
+                .mapToInt(R -> R.getPrice())
+                .sum();
+    }
+
     @Override
     public String toString() {
         String s = "";
