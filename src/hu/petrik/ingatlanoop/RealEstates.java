@@ -82,6 +82,14 @@ public class RealEstates {
                 .collect(Collectors.toList());
     }
 
+    public List<String> getSortedCities() {
+        return realEstateList.stream()
+                .map(ingatlan -> ingatlan.getCity())
+                .distinct()
+                .sorted()
+                .collect(Collectors.toList());
+    }
+
     @Override
     public String toString() {
         String s = "";

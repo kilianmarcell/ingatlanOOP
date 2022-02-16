@@ -10,5 +10,10 @@ public class Main {
         System.out.println(r.getCountOfRealEstateWithoutSize());
         System.out.println(r.isSaleRealEstateInCity("SACRAMENTO"));
         System.out.println(r.isSaleRealEstateInCity("Budapest"));
+        System.out.println(r.getCountOfSalesInCity("SACRAMENTO"));
+        System.out.println(r.getSalesInCity("SACRAMENTO"));
+        for (String city:r.getSortedCities()) {
+            System.out.println(city);
+        }
     }
 }
